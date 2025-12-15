@@ -12,7 +12,6 @@ export default function VerifyEmail() {
     const [resendStatus, setResendStatus] = useState('')
 
     useEffect(() => {
-        // Automatically sign out the user when the page loads
         const auth = getAuth()
         signOut(auth).catch((error) => {
             console.error("Error signing out:", error)
@@ -20,7 +19,6 @@ export default function VerifyEmail() {
     }, [])
 
     const handleResendVerification = async () => {
-        // Redirect to sign-in page with a flag to resend verification
         window.location.href = `/user/signin?resendVerification=true&email=${encodeURIComponent(email || '')}`
     }
 

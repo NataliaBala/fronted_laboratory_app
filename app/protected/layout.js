@@ -14,7 +14,6 @@ function Protected({ children }) {
         }
     }, [user, loading, returnUrl]);
 
-    // Show loading while determining auth state
     if (loading) {
         return (
             <div style={{
@@ -29,7 +28,6 @@ function Protected({ children }) {
         );
     }
 
-    // Don't render children until we know the user is authenticated
     if (!user) {
         return null;
     }

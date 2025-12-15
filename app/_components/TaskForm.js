@@ -10,22 +10,14 @@ export default function TaskForm({ date, task, onSave, onCancel }) {
 
   useEffect(() => {
     if (task) {
-      // eslint-disable-next-line react-hooks/set-state-in-effect
       setTitle(task.title || '')
-      // eslint-disable-next-line react-hooks/set-state-in-effect
       setDescription(task.description || '')
-      // eslint-disable-next-line react-hooks/set-state-in-effect
       setCompleted(task.completed || false)
-      // eslint-disable-next-line react-hooks/set-state-in-effect
       setPriority(task.priority || 'medium')
     } else {
-      // eslint-disable-next-line react-hooks/set-state-in-effect
       setTitle('')
-      // eslint-disable-next-line react-hooks/set-state-in-effect
       setDescription('')
-      // eslint-disable-next-line react-hooks/set-state-in-effect
       setCompleted(false)
-      // eslint-disable-next-line react-hooks/set-state-in-effect
       setPriority('medium')
     }
   }, [task])
@@ -38,7 +30,7 @@ export default function TaskForm({ date, task, onSave, onCancel }) {
       description,
       completed,
       priority,
-      date: date.toISOString().split('T')[0] // Format: YYYY-MM-DD
+      date: date.toISOString().split('T')[0]
     }
 
     onSave(taskData)

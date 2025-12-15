@@ -7,7 +7,7 @@ import Calendar from './_components/Calendar'
 
 function LandingPage() {
   const { user, loading } = useAuth()
-  const [active, setActive] = useState(null) // 'kalendarz' | null
+  const [active, setActive] = useState(null)
 
   if (loading) {
     return (
@@ -23,7 +23,6 @@ function LandingPage() {
     );
   }
 
-  // Widok dla zalogowanego: pusta strona + duże przyciski centralne
   if (user) {
     return (
       <div style={{
@@ -52,7 +51,6 @@ function LandingPage() {
     )
   }
 
-  // Widok publiczny (niezalogowany)
   return (
     <div style={{
       minHeight: '80vh',

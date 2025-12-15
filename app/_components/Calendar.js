@@ -15,7 +15,6 @@ export default function Calendar() {
   const [showTaskForm, setShowTaskForm] = useState(false)
   const [editingTask, setEditingTask] = useState(null)
 
-  // Load tasks from Firestore
   useEffect(() => {
     if (!user?.uid) return
 
@@ -47,12 +46,10 @@ export default function Calendar() {
 
     const days = []
 
-    // Add empty cells for days before the first day of the month
     for (let i = 0; i < startingDayOfWeek; i++) {
       days.push(null)
     }
 
-    // Add days of the month
     for (let day = 1; day <= daysInMonth; day++) {
       days.push(new Date(year, month, day))
     }
@@ -93,11 +90,9 @@ export default function Calendar() {
   const handleSaveTask = async (taskData) => {
     try {
       if (editingTask) {
-        // Update existing task
         const taskRef = doc(db, 'tasks', editingTask.id)
         await updateDoc(taskRef, taskData)
       } else {
-        // Add new task
         await addDoc(collection(db, 'tasks'), {
           ...taskData,
           userId: user.uid,
@@ -174,7 +169,6 @@ export default function Calendar() {
         backgroundColor: '#e5e7eb',
         border: '1px solid #e5e7eb'
       }}>
-        {/* Day headers */}
         {dayNames.map(day => (
           <div key={day} style={{
             backgroundColor: '#f9fafb',
@@ -187,7 +181,6 @@ export default function Calendar() {
           </div>
         ))}
 
-        {/* Calendar days */}
         {getDaysInMonth(currentDate).map((date, index) => (
           <div key={index} style={{
             backgroundColor: 'white',

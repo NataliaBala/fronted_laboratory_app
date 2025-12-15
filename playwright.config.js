@@ -1,7 +1,7 @@
 import { defineConfig, devices } from '@playwright/test';
 
 export default defineConfig({
-  testDir: './tests', // Upewnij się, że wskazuje na folder z testami
+  testDir: './tests',
   fullyParallel: true,
   retries: 0,
   workers: 1,
@@ -15,7 +15,6 @@ export default defineConfig({
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
     },
-    // Inne konfiguracje dla Firefox, Safari itp.
   ],
   webServer: {
     command: 'npm run dev',

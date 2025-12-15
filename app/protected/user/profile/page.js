@@ -29,7 +29,6 @@ export default function ProfilePage() {
     },
   })
 
-  // Load user data from Firestore on component mount
   useEffect(() => {
     const loadUserData = async () => {
       if (user?.uid) {
@@ -39,7 +38,6 @@ export default function ProfilePage() {
             const userData = snapshot.data();
             const address = userData.address || {};
 
-            // Set form values using setValue
             setValue("displayName", userData.displayName || user?.displayName || '');
             setValue("photoURL", userData.photoURL || user?.photoURL || '');
             setValue("bio", userData.bio || '');
@@ -50,7 +48,6 @@ export default function ProfilePage() {
           }
         } catch (error) {
           console.warn('Could not load user data from Firestore (database may not be set up yet):', error)
-          // Continue without Firestore data
         }
       }
       setLoading(false)
@@ -71,13 +68,11 @@ export default function ProfilePage() {
     setError('')
 
     try {
-      // Update Firebase Auth profile
       await updateProfile(user, {
         displayName: data.displayName,
         photoURL: data.photoURL,
       })
 
-      // Create or update document in Firestore users collection
       try {
         await setDoc(doc(db, "users", user?.uid), {
           bio: data.bio,
@@ -93,9 +88,8 @@ export default function ProfilePage() {
         console.log("Document written with ID: ", user?.uid);
       } catch (firestoreError) {
         console.error("Error adding document: ", firestoreError);
-        // Show alert about insufficient permissions
         setError("Brak uprawnień do zapisu danych w bazie danych. Sprawdź konfigurację Firestore.");
-        return; // Don't continue if Firestore fails
+        return;
       }
 
       console.log("Profile updated")

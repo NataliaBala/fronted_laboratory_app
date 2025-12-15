@@ -8,9 +8,8 @@ import { useRouter } from 'next/navigation';
 export default function RegisterForm(){
   const { user, loading } = useAuth();
   const router = useRouter();
-  const [registerError, setRegisterError] = useState(""); //stan błędów rejestracji
+  const [registerError, setRegisterError] = useState("");
   
-  // Show loading while determining auth state
   if (loading) {
     return (
       <div style={{
@@ -32,7 +31,6 @@ export default function RegisterForm(){
   const auth = getAuth();
   
   const onSubmit = (data) => {
-    // walidacja obu równości haseł
     if (data.password !== data.repeatPassword) {
       setRegisterError("Hasła nie są identyczne");
       return;
@@ -41,7 +39,6 @@ export default function RegisterForm(){
     createUserWithEmailAndPassword(auth, data.email, data.password)
       .then((userCredential) => {
         console.log("User registered!");
-        // User is now logged in, redirect to home page
         router.push("/");
       })
       .catch((error) => {

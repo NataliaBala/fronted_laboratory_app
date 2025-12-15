@@ -1,12 +1,6 @@
-// User operations utility
 import { doc, setDoc, getDoc, updateDoc, collection } from 'firebase/firestore'
 import { db } from './firebase'
 
-/**
- * Create a user document in Firestore
- * @param {string} uid - User ID from Firebase Auth
- * @param {object} userData - Additional user data
- */
 export const createUserDocument = async (uid, userData) => {
   try {
     const userRef = doc(db, 'users', uid)
@@ -22,10 +16,6 @@ export const createUserDocument = async (uid, userData) => {
   }
 }
 
-/**
- * Get user document from Firestore
- * @param {string} uid - User ID from Firebase Auth
- */
 export const getUserDocument = async (uid) => {
   try {
     const userRef = doc(db, 'users', uid)
@@ -43,11 +33,6 @@ export const getUserDocument = async (uid) => {
   }
 }
 
-/**
- * Update user document in Firestore
- * @param {string} uid - User ID from Firebase Auth
- * @param {object} updates - Data to update
- */
 export const updateUserDocument = async (uid, updates) => {
   try {
     const userRef = doc(db, 'users', uid)
@@ -62,9 +47,6 @@ export const updateUserDocument = async (uid, updates) => {
   }
 }
 
-/**
- * Get users collection reference
- */
 export const getUsersCollection = () => {
   return collection(db, 'users')
 }

@@ -1,6 +1,3 @@
-// app/layout.js
-// Globalny układ aplikacji z boczną nawigacją, górnym paskiem i stopką
-
 import "./globals.css";
 import { Roboto } from "next/font/google";
 const roboto = Roboto({ subsets: ["latin"], weight: ["400", "700"] });
@@ -21,14 +18,11 @@ export default function RootLayout({ children }) {
         <AuthProvider>
           <Header />
 
-          {/* Główna część */}
           <main style={{ flexGrow: 1, display: "flex", flexDirection: "column" }}>
-            {/* Zawartość dynamiczna stron */}
             <div style={{ padding: "20px", flexGrow: 1 }}>
               {children}
             </div>
 
-            {/* Stopka */}
             <footer
               style={{
                 background: "#1f1f1f",
