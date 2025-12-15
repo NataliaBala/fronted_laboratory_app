@@ -2,11 +2,7 @@
 
 Aplikacja do zarządzania zadaniami w kalendarzu, stworzona z wykorzystaniem Next.js, Firebase Authentication i Firestore.
 
-## 🚀 Live Demo
-
-**[Zobacz wersję live aplikacji](https://fronted-laboratory-app.vercel.app)**
-
-## 📋 Opis projektu
+##  Opis projektu
 
 Frontend Laboratory App to aplikacja webowa umożliwiająca:
 - Rejestrację i logowanie użytkowników (Firebase Authentication)
@@ -15,7 +11,7 @@ Frontend Laboratory App to aplikacja webowa umożliwiająca:
 - Dodawanie, edytowanie i usuwanie zadań
 - Organizację pracy z priorytetami zadań
 
-## 🛠️ Technologie
+## Technologie
 
 - **Next.js 16** - Framework React
 - **Firebase** - Backend (Authentication, Firestore)
@@ -27,31 +23,11 @@ Frontend Laboratory App to aplikacja webowa umożliwiająca:
 
 ### Firestore Security Rules
 
-Aby profil i dane były zapisywane poprawnie, musisz ustawić Security Rules w Firebase Console:
-
-1. Przejdź do Firebase Console → Firestore Database → Rules
-2. Zastąp zawartość tymi rules:
-
-```
-rules_version = '2';
-service cloud.firestore {
-  match /databases/{database}/documents {
-    // Allow authenticated users to read/write their own user data
-    match /users/{uid} {
-      allow read, write: if request.auth.uid == uid;
-    }
-    
-    // Other collections can be added here
-    match /{document=**} {
-      allow read, write: if request.auth != null;
-    }
-  }
-}
-```
+ link do wersji live:  https://frontend-laboratory-zgkai83nr-natalias-projects-f51b9fec.vercel.app
 
 3. Kliknij "Publish"
 
-## 🚀 Instalacja i uruchomienie
+##  Instalacja i uruchomienie
 
 1. Sklonuj repozytorium:
 ```bash
@@ -82,17 +58,12 @@ npm run dev
 
 Aplikacja będzie dostępna pod adresem [http://localhost:3000](http://localhost:3000)
 
-## 🧪 Testowanie
+##  Testowanie
 
 Uruchom testy E2E z Playwright:
 ```bash
 npx playwright test
 ```
 
-## 👤 Autor
-
-**Natalia Bała**
-
-## 📝 Licencja
 
 Wszystkie prawa zastrzeżone © 2025

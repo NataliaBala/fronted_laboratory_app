@@ -1,10 +1,10 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { signOut, getAuth, sendEmailVerification } from 'firebase/auth'
 
-export default function VerifyEmail() {
+function VerifyEmail() {
     const searchParams = useSearchParams()
     const email = searchParams?.get('email')
     const fromLogin = searchParams?.get('fromLogin') === 'true'
@@ -115,5 +115,13 @@ export default function VerifyEmail() {
                 </a>
             </div>
         </div>
+    )
+}
+
+export default function VerifyEmailPage() {
+    return (
+        <Suspense fallback={<div>Ładowanie...</div>}>
+            <VerifyEmail />
+        </Suspense>
     )
 }
