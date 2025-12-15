@@ -1,4 +1,27 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Frontend Laboratory App
+
+Aplikacja do zarządzania zadaniami w kalendarzu, stworzona z wykorzystaniem Next.js, Firebase Authentication i Firestore.
+
+## 🚀 Live Demo
+
+**[Zobacz wersję live aplikacji](https://fronted-laboratory-app.vercel.app)**
+
+## 📋 Opis projektu
+
+Frontend Laboratory App to aplikacja webowa umożliwiająca:
+- Rejestrację i logowanie użytkowników (Firebase Authentication)
+- Zarządzanie profilem użytkownika
+- Przeglądanie kalendarza z zadaniami
+- Dodawanie, edytowanie i usuwanie zadań
+- Organizację pracy z priorytetami zadań
+
+## 🛠️ Technologie
+
+- **Next.js 16** - Framework React
+- **Firebase** - Backend (Authentication, Firestore)
+- **Playwright** - Testy E2E
+- **DaisyUI** - Komponenty UI
+- **Tailwind CSS** - Stylizacja
 
 ## Firebase Setup
 
@@ -28,37 +51,48 @@ service cloud.firestore {
 
 3. Kliknij "Publish"
 
-## Getting Started
+## 🚀 Instalacja i uruchomienie
 
-First, run the development server:
-
+1. Sklonuj repozytorium:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/NataliaBala/fronted_laboratory_app.git
+cd fronted_laboratory_app
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Zainstaluj zależności:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+3. Skonfiguruj zmienne środowiskowe Firebase w pliku `.env.local`:
+```env
+NEXT_PUBLIC_API_KEY=your_api_key
+NEXT_PUBLIC_AUTH_DOMAIN=your_auth_domain
+NEXT_PUBLIC_PROJECT_ID=your_project_id
+NEXT_PUBLIC_STORAGE_BUCKET=your_storage_bucket
+NEXT_PUBLIC_MESSAGING_SENDER_ID=your_sender_id
+NEXT_PUBLIC_APP_ID=your_app_id
+NEXT_PUBLIC_MEASUREMENT_ID=your_measurement_id
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Uruchom serwer deweloperski:
+```bash
+npm run dev
+```
 
-## Learn More
+Aplikacja będzie dostępna pod adresem [http://localhost:3000](http://localhost:3000)
 
-To learn more about Next.js, take a look at the following resources:
+## 🧪 Testowanie
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Uruchom testy E2E z Playwright:
+```bash
+npx playwright test
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 👤 Autor
 
-## Deploy on Vercel
+**Natalia Bała**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📝 Licencja
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Wszystkie prawa zastrzeżone © 2025
